@@ -1,0 +1,20 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "Django App",
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.10", // O una versión de Python más reciente
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install django pillow && django-admin startproject mysite . && python manage.py startapp core", // Instala Django, Pillow (para imágenes), crea el proyecto y una app 'core'
+  "remoteUser": "vscode"
+}
